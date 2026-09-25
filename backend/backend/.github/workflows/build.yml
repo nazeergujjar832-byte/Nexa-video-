@@ -1,0 +1,20 @@
+name: Build NexaVideo APK
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build Backend Check
+        run: |
+          cd backend
+          npm install
+      - name: Success
+        run: echo "Backend Ready for Render"
